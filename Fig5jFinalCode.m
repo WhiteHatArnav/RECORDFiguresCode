@@ -31,16 +31,16 @@ joinedLuxList = cat(1,LuxList1Num, LuxListNum);
 
 
  
-            query2a = "SELECT approachavoid FROM live_table WHERE date >= '08/22/2022' AND date <= '08/25/2022' AND tasktypedone = 'P2 L1' AND health = 'Food Deprivation' AND feeder = '1' AND lightlevel = '1';";
+            query2a = "SELECT approachavoid FROM live_table WHERE  tasktypedone = 'P2 L1' AND health = 'Food Deprivation' AND feeder = '1' AND lightlevel = '1';";
             res2a = fetch(conn,query2a);
 
-            query2b = "SELECT approachavoid FROM live_table WHERE  date >= '08/22/2022' AND date <= '08/25/2022' AND tasktypedone = 'P2 L1' AND health = 'Food Deprivation' AND feeder = '2' AND lightlevel = '1';";
+            query2b = "SELECT approachavoid FROM live_table WHERE  tasktypedone = 'P2 L1' AND health = 'Food Deprivation' AND feeder = '2' AND lightlevel = '1';";
             res2b = fetch(conn,query2b);
             
-            query2c = "SELECT approachavoid FROM live_table WHERE  date >= '08/22/2022' AND date <= '08/25/2022' AND tasktypedone = 'P2 L1' AND health = 'Food Deprivation' AND feeder = '3' AND lightlevel = '1';";
+            query2c = "SELECT approachavoid FROM live_table WHERE  tasktypedone = 'P2 L1' AND health = 'Food Deprivation' AND feeder = '3' AND lightlevel = '1';";
             res2c = fetch(conn,query2c);
 
-            query2d = "SELECT approachavoid FROM live_table WHERE  date >= '08/22/2022' AND date <= '08/25/2022' AND tasktypedone = 'P2 L1' AND health = 'Food Deprivation' AND feeder = '4' AND lightlevel = '1';";
+            query2d = "SELECT approachavoid FROM live_table WHERE tasktypedone = 'P2 L1' AND health = 'Food Deprivation' AND feeder = '4' AND lightlevel = '1';";
             res2d = fetch(conn,query2d);
 
         AcceptancePercent2a = zeros(1,1);
@@ -73,16 +73,16 @@ joinedLuxList = cat(1,LuxList1Num, LuxListNum);
    
 
         for k = 1:l2
-            query1a = "SELECT approachavoid FROM live_table WHERE  date >= '08/22/2022' AND date <= '08/25/2022' AND tasktypedone = 'P2 L1L3' AND intensityofcost3 = '" + LuxList(k) + "' AND health = 'Food Deprivation' AND feeder = '1' AND lightlevel = '1';";
+            query1a = "SELECT approachavoid FROM live_table WHERE  tasktypedone = 'P2 L1L3' AND intensityofcost3 = '" + LuxList(k) + "' AND health = 'Food Deprivation' AND feeder = '1' AND lightlevel = '1';";
             res1a = fetch(conn,query1a);
 
-            query1b = "SELECT approachavoid FROM live_table WHERE  date >= '08/22/2022' AND date <= '08/25/2022' AND  tasktypedone = 'P2 L1L3' AND intensityofcost3 = '" + LuxList(k) + "' AND health = 'Food Deprivation' AND feeder = '2' AND lightlevel = '1';";
+            query1b = "SELECT approachavoid FROM live_table WHERE   tasktypedone = 'P2 L1L3' AND intensityofcost3 = '" + LuxList(k) + "' AND health = 'Food Deprivation' AND feeder = '2' AND lightlevel = '1';";
             res1b = fetch(conn,query1b);
             
-            query1c = "SELECT approachavoid FROM live_table WHERE  date >= '08/22/2022' AND date <= '08/25/2022' AND tasktypedone = 'P2 L1L3' AND intensityofcost3 = '" + LuxList(k) + "' AND health = 'Food Deprivation' AND feeder = '3' AND lightlevel = '1';";
+            query1c = "SELECT approachavoid FROM live_table WHERE  tasktypedone = 'P2 L1L3' AND intensityofcost3 = '" + LuxList(k) + "' AND health = 'Food Deprivation' AND feeder = '3' AND lightlevel = '1';";
             res1c = fetch(conn,query1c);
 
-            query1d = "SELECT approachavoid FROM live_table WHERE  date >= '08/22/2022' AND date <= '08/25/2022' AND tasktypedone = 'P2 L1L3' AND intensityofcost3 = '" + LuxList(k) + "' AND health = 'Food Deprivation' AND feeder = '4' AND lightlevel = '1';";
+            query1d = "SELECT approachavoid FROM live_table WHERE  tasktypedone = 'P2 L1L3' AND intensityofcost3 = '" + LuxList(k) + "' AND health = 'Food Deprivation' AND feeder = '4' AND lightlevel = '1';";
             res1d = fetch(conn,query1d);
     
         AcceptanceVector1a = str2double(res1a.approachavoid);
@@ -172,8 +172,8 @@ lReward = log(Reward);
  colormap(c);
  a = colorbar;
  ylabel(a,'Approach Rate(%)')
-title("Food Deprivation Color Map")
+title("Average Food Deprivation Color Map")
 xlabel('Reward, ln(Sugar Water Concentraion)');
 ylabel('Cost, Lux');
-% filename = "Food Deprivation ColorMap.fig";
+% filename = "FoodDeprivAvgColorMap.fig";
 % saveas(gcf, filename);
